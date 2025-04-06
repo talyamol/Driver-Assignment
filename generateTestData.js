@@ -36,6 +36,7 @@ async function getCoordinatesFromAddress(address) {
   }
 }
 
+// Generate random time between start and end times (format: "HH:MM")
 function getRandomTime(startTime, endTime) {
   const [startHours, startMinutes] = startTime.split(':').map(Number);
   const [endHours, endMinutes] = endTime.split(':').map(Number);
@@ -53,6 +54,7 @@ function getRandomTime(startTime, endTime) {
   return `${String(randomHours).padStart(2, '0')}:${String(randomMinutes).padStart(2, '0')}`;
 }
 
+// Add minutes to a time (format: "HH:MM")
 function addMinutesToTime(timeStr, minutes) {
   const [hours, mins] = timeStr.split(':').map(Number);
   
@@ -63,6 +65,7 @@ function addMinutesToTime(timeStr, minutes) {
   return `${String(newHours).padStart(2, '0')}:${String(newMinutes).padStart(2, '0')}`;
 }
 
+// Generate drivers data
 async function generateDriversData(numDrivers) {
   const cities = [
     'Tel Aviv, Israel',
@@ -128,6 +131,8 @@ async function generateDriversData(numDrivers) {
   
   return drivers;
 }
+
+// Generate rides data
 async function generateRidesData(numRides) {
   const locations = [
     'Tel Aviv, Israel',
@@ -191,6 +196,7 @@ async function generateRidesData(numRides) {
   return rides;
 }
 
+// Main function to generate and save test data
 async function generateTestData() {
   try {
     console.log('Generating drivers data...');
